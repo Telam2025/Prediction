@@ -1,0 +1,35 @@
+{% extends "Pred_app/Base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card p-4">
+    <div class="media">
+      <img class="rounded-circle account-img mr-3" src="{{ user.profile.image.url }}" width="180" height="180" alt="Profile picture">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+        <p class="text-secondary mb-0"><strong>Ville:</strong> {{ user.profile.ville }}</p>
+        <p class="text-secondary mb-0"><strong>Téléphone:</strong> {{ user.profile.telephone }}</p>
+        <p class="text-secondary mb-0"><strong>Sexe:</strong> {{ user.profile.get_sexe_display }}</p>
+      </div>
+    </div>
+  </div>
+   <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Profile Info</legend>
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+      </fieldset>
+      
+      <div class="form-group mt-3">
+        <button type="submit" class="btn btn-outline-info">Update</button>
+      </div>
+      
+    </form>
+</div>
+
+{% endblock content %}
+

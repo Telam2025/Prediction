@@ -1,0 +1,61 @@
+{% extends "Pred_app/Base.html" %}
+{% load static %}
+{% block Titre %}
+Accueil
+{% endblock %}
+
+{% block content %}
+<!-- Section image hero avec texte intégré -->
+<div class="jumbotron jumbotron-fluid" style="
+  background-image: url('{% static 'Pred/D.png' %}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+">
+</div>
+  
+
+<!-- Section contenu -->
+<div class="card shadow-sm p-4">
+  <h2 class="card-title">L'analyse de données</h2>
+
+  <p class="card-text">
+    L'analyse de données est un processus systématique d'inspection, de nettoyage, de transformation et de modélisation de données dans le but de découvrir des informations utiles, d'informer des conclusions et de soutenir la prise de décision.
+
+    Elle implique souvent l'utilisation de méthodes statistiques, d'outils informatiques et de techniques de visualisation pour explorer les données, identifier des tendances, des motifs, des corrélations et des anomalies, et finalement en extraire de la valeur.
+
+    En termes plus simples, c'est l'art et la science de donner un sens à des ensembles de données brutes pour en tirer des connaissances exploitables.
+  </p>
+
+  <p class="card-text">
+    <strong>Pourquoi c’est important ?</strong><br>
+    L'analyse de données est devenue fondamentale dans le monde actuel, qu'il s'agisse des entreprises, de la recherche scientifique, du gouvernement ou même de nos vies quotidiennes. Voici les principales raisons de son importance :
+  </p>
+
+  <ul class="list-unstyled">
+  <li>
+    <strong>1. Amélioration de la prise de décision :</strong><br>
+    L’un des bénéfices majeurs de l’analyse de données. Elle permet de passer de décisions fondées sur l’intuition à des choix éclairés, basés sur des faits concrets. En comprenant ce qui s’est passé, pourquoi cela s’est produit, ce qui pourrait arriver et quelles actions entreprendre, les organisations réduisent les risques et prennent des décisions réellement stratégiques.
+  </li>
+
+  <li class="mt-3">
+    <strong>2. Optimisation des opérations et gains d’efficacité :</strong><br>
+    L’analyse des processus internes (production, logistique, service client, etc.) permet d’identifier les points de blocage, les inefficacités et les gaspillages. Résultat : amélioration continue, réduction des coûts, et augmentation mesurable de la productivité.
+  </li>
+
+  <li class="mt-3">
+    <strong>3. Identification des tendances et anticipation :</strong><br>
+    L’exploitation des données historiques révèle des tendances, des cycles ou des comportements répétitifs. Couplée à l’analyse prédictive (machine learning, statistiques avancées), elle permet d’anticiper la demande, prévoir les pannes, ou estimer les évolutions du marché.
+  </li>
+
+  <li class="mt-3">
+    <strong>4. Gestion des risques et détection de la fraude :</strong><br>
+    En repérant les anomalies dans les transactions ou les comportements utilisateurs, les modèles analytiques peuvent alerter en amont sur des activités suspectes ou des risques émergents — qu’ils soient financiers, techniques ou opérationnels.
+  </li>
+</ul>
+
+</div>
+{% endblock %}

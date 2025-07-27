@@ -1,0 +1,49 @@
+{% extends "Pred_app/Base.html" %}
+{% load static %}
+
+{% block Titre %}
+Page Contact
+{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4 mb-4">
+  <h2 class="mb-4">Contactez-nous</h2>
+
+  <div class="row">
+    <!-- Coordonnées -->
+    <div class="col-md-6 mb-3">
+      <h5><i class="fas fa-phone"></i> Téléphone</h5>
+      <p class="mb-2">+33 (0)6 02 52 96 36</p>
+
+      <h5>📧 Email</h5>
+      <p class="mb-2">radjamakhlouf99@gmail.com</p>
+
+      <h5><i class="fas fa-map-marker-alt"></i> Adresse</h5>
+      <p>Sannois, Île de France</p>
+    </div>
+
+    <!-- Formulaire de contact -->
+    <div class="col-md-6">
+      <form method="post" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="name" placeholder="Votre nom">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Écrivez votre message ici..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

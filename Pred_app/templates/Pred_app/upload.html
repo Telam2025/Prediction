@@ -1,0 +1,59 @@
+{% extends "Pred_app/Base.html" %}
+{% load static %}
+
+{% block Titre %}Upload pour Prédiction{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5" style="background: linear-gradient(to right, #eef2f3, #8e9eab); min-height: 100vh;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-0 shadow-lg rounded-4">
+        <div class="card-body p-5">
+
+          <div class="text-center mb-4">
+            <img src="{% static 'Pred/th.png' %}" alt="Upload" style="width: 200px; height: 200px;">
+                        
+          </div>
+
+          <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-4">
+              <label for="model" class="form-label">Modèle de prédiction</label>
+              <select id="model" name="model" class="form-select form-select-lg" required>
+                <option value="">-- Sélectionner --</option>
+                <option value="random_forest">Random Forest</option>
+                <option value="xgboost">XGBoost</option>
+                <option value="sarimax">SARIMAX</option>
+                <option value="Rand_ford_hist">Random Forest hist seulement</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label for="file" class="form-label">Fichier Excel</label>
+              <input type="file" id="file" name="file" accept=".xls,.xlsx" class="form-control form-control-lg" required>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-gradient btn-lg">🔍 Lancer la prédiction</button>
+            </div>
+          </form>
+
+          {% if error %}
+            <div class="alert alert-danger mt-4" role="alert">
+              <strong>Erreur :</strong> {{ error }}
+            </div>
+          {% endif %}
+
+          {% if prediction %}
+            <div class="mt-5">
+              <h5 class="text-success fw-bold">Résultats :</h5>
+              <pre class="bg-light p-4 border rounded-3">{{ prediction }}</pre>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
